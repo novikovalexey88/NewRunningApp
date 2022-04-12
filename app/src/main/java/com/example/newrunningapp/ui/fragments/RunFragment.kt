@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.newrunningapp.R
+import com.example.newrunningapp.databinding.ActivityMainBinding
 import com.example.newrunningapp.other.Constants.REQUEST_CODE_LOCATION_PERMISSION
 import com.example.newrunningapp.other.TrackingUtility
 import com.example.newrunningapp.ui.viewmodels.MainViewModel
@@ -21,14 +22,18 @@ class RunFragment: Fragment(R.layout.fragment_run), EasyPermissions.PermissionCa
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requestPermissons()
+
+       /// requestPermissons()
+
         val fab: View = view.findViewById(R.id.fab)
 
-        fab.setOnClickListener{findNavController().navigate(R.id.action_runFragment_to_trackingFragment)
 
+        fab.setOnClickListener{findNavController().navigate(R.id.action_runFragment_to_trackingFragment)
         }
 
+
     }
+
         private fun requestPermissons () {
         if(TrackingUtility.hasLocationPermissions(requireContext())) {
             return
@@ -52,6 +57,7 @@ class RunFragment: Fragment(R.layout.fragment_run), EasyPermissions.PermissionCa
                     Manifest.permission.ACCESS_COARSE_LOCATION,
                     Manifest.permission.ACCESS_FINE_LOCATION,
                     Manifest.permission.ACCESS_BACKGROUND_LOCATION
+
                 )
             }
     }
@@ -65,13 +71,17 @@ class RunFragment: Fragment(R.layout.fragment_run), EasyPermissions.PermissionCa
         }
     }
 
-    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {}
+    override fun onPermissionsDenied(requestCode: Int, perms: MutableList<String>) {
+
+    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
         grantResults: IntArray
-    ) {
+    )
+
+    {
         onRequestPermissionsResult(requestCode, permissions, grantResults)
         EasyPermissions.onRequestPermissionsResult(requestCode, permissions, grantResults, this)
     }
