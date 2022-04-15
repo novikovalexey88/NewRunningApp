@@ -7,6 +7,7 @@ import android.view.View
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.newrunningapp.R
+import com.example.newrunningapp.databinding.ActivityMainBinding
 import com.example.newrunningapp.db.RunDAO
 import com.example.newrunningapp.other.Constants.ACTION_SHOW_TRACKING_FRAGMENT
 import com.google.android.material.bottomnavigation.BottomNavigationView
